@@ -30,4 +30,5 @@ on_drop = function()
 	apply_drop_scale();
 	stretch();
 	on_drop_extra();
+	o_GameManager.check_for_slide_completion();
 }

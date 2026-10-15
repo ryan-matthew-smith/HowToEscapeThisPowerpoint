@@ -11,7 +11,6 @@ on_drop_extra = function()
 		if (_colType == 1)
 		{
 			in_place = true;
-			o_GameManager.check_for_slide_completion();
 		}
 	}
 }
