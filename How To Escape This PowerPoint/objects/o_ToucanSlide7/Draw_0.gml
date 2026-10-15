@@ -1,0 +1,1 @@
+if (global.hasBird) draw_self();

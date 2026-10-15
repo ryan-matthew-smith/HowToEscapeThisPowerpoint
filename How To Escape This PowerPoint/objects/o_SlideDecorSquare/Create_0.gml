@@ -1,7 +1,7 @@
 // Inherit the parent event
 event_inherited();
 
-on_drop = function()
+on_drop_extra = function()
 {	
 	var _next = instance_find(o_NextSlideLockedTextOnly, 0);
 	if (_next != noone)

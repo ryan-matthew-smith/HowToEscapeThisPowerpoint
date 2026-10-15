@@ -22,6 +22,11 @@ unlock = function()
 	locked = false;
 }
 
+lock = function()
+{
+	locked = true;
+}
+
 perform_step = function()
 {
 	if (delay_before_active > 0)
