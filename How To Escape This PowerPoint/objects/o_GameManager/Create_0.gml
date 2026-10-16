@@ -48,4 +48,4 @@ check_for_slide_completion = function()
 	}
 }
 
-room_goto(Room9);
+//room_goto(Room9);
