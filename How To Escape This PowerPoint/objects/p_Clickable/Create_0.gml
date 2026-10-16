@@ -1,5 +1,6 @@
 scale_struct = scale_create();
 holdable = false;
+in_place = false;
 on_click = function()
 {
 

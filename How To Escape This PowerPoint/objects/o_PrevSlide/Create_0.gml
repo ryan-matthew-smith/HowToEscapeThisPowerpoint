@@ -3,9 +3,9 @@ event_inherited();
 depth = -2000;
 locked = false;
 clicked = false;
-delay_before_active = 30;
+delay_before_active = 15;
 time_after_click = 0;
-time_after_click_max = 20;
+time_after_click_max = 15;
 
 on_click = function()
 {
@@ -41,11 +41,17 @@ perform_step = function()
 			time_after_click--;
 		}
 		else {
-			room_goto_previous();
+			if (next_room == noone) 
+			{
+				room_goto_previous();
+			}
+			else {
+				room_goto(next_room);
+			}
 		}
 	}
 	
 	scale_step_elastic(scale_struct);
 }
 
-if (global.hasBird) instance_destroy();
+if (room == Room7 && global.hasBird) instance_destroy();

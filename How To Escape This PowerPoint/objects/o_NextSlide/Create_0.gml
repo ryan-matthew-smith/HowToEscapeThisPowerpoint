@@ -1,11 +1,12 @@
 event_inherited();
 
 depth = -2000;
+initialized = false;
 locked = false;
 clicked = false;
-delay_before_active = 30;
+delay_before_active = 15;
 time_after_click = 0;
-time_after_click_max = 20;
+time_after_click_max = 15;
 
 on_click = function()
 {
@@ -29,6 +30,11 @@ lock = function()
 
 perform_step = function()
 {
+	if (!initialized)
+	{
+		initialized = true;
+		o_GameManager.check_for_slide_completion();
+	}
 	if (delay_before_active > 0)
 	{
 		delay_before_active--;
@@ -41,7 +47,13 @@ perform_step = function()
 			time_after_click--;
 		}
 		else {
-			room_goto_next();
+			if (next_room == noone) 
+			{
+				room_goto_next();
+			}
+			else {
+				room_goto(next_room);
+			}
 		}
 	}
 	

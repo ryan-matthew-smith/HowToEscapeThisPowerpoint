@@ -1,0 +1,1 @@
+if (global.hasHamster) draw_self();
