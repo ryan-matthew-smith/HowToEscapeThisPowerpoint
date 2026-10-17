@@ -13,4 +13,8 @@ on_drop_extra = function()
 			in_place = true;
 		}
 	}
+	if (!in_place)
+	{
+		audio_play_sound(choose(sfx_Metal1, sfx_Metal2), 100, false);
+	}
 }

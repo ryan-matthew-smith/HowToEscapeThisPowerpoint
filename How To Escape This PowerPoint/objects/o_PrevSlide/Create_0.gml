@@ -12,6 +12,7 @@ on_click = function()
 	if (!locked && !clicked && delay_before_active == 0)
 	{
 		stretch();
+		audio_play_sound(choose(sfx_Back1, sfx_Back2), 100, false, 1, 0, choose(0.9,1,1.1));
 		clicked = true;
 		time_after_click = time_after_click_max;
 	}

@@ -4,7 +4,11 @@ global.hasHamster = false;
 unlock_slide = function()
 {
 	var _next = instance_find(o_NextSlideLocked, 0);
-	_next.unlock();
+	if (_next.locked == true)
+	{
+		audio_play_sound(sfx_Win,100,false);
+		_next.unlock();
+	}
 }
 
 lock_slide = function()
@@ -30,6 +34,7 @@ check_for_slide_completion = function()
 					if (_2.in_place)
 					{
 						global.hasBird = true;
+						audio_play_sound(sfx_Bird, 100, false);
 					}
 				}
 				else 

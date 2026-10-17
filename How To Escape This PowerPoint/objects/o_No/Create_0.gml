@@ -8,5 +8,9 @@ initialized = false;
 on_click = function()
 {
 	stretch();
-	global.hasHamster = false;
+	if (global.hasHamster == true)
+	{
+		audio_play_sound(sfx_Sad, 100, false);
+		global.hasHamster = false;
+	}
 }

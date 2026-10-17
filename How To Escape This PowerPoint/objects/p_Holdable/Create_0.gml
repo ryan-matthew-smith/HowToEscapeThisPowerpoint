@@ -14,10 +14,16 @@ apply_drop_scale = function()
 	image_yscale = 1;
 }
 
+on_pickup_extra = function()
+{
+	
+}
+
 on_pickup = function()
 {
 	apply_pickup_scale();
 	squash();
+	on_pickup_extra();
 }
 
 on_drop_extra = function()

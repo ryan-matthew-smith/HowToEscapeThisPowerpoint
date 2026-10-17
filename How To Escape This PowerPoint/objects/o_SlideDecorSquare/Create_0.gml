@@ -9,7 +9,10 @@ on_drop_extra = function()
 		var _colType = rectangle_in_rectangle(_next.bbox_left, _next.bbox_top, _next.bbox_right, _next.bbox_bottom, bbox_left, bbox_top, bbox_right, bbox_bottom);
 		if (_colType == 1)
 		{
-			_next.unlock();
+			o_GameManager.unlock_slide();
+		}
+		else {
+			audio_play_sound(sfx_Drop, 100, false);
 		}
 	}
 }

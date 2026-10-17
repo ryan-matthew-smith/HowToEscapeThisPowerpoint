@@ -1,3 +1,7 @@
+if (!audio_is_playing(sfx_Hamsters))
+{
+	audio_play_sound(sfx_Hamsters, 100, false);
+}
 move_speed_x = 0;
 move_speed_y = 0;
 move_speed_max = 8;
