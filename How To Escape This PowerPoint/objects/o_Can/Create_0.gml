@@ -1,6 +1,11 @@
 // Inherit the parent event
 event_inherited();
 
+on_pickup_extra = function()
+{
+	audio_play_sound(choose(sfx_Metal1, sfx_Metal2), 100, false);
+}
+
 on_drop_extra = function()
 {
 	in_place = false;

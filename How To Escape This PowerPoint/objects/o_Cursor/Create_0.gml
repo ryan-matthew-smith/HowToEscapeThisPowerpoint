@@ -4,6 +4,15 @@ held_object = noone;
 held_object_diff_x = 0;
 held_object_diff_y = 0;
 
+force_drop = function()
+{
+	if (held_object != noone)
+	{
+		held_object.on_drop();
+	}
+	held_object = noone; 
+}
+
 perform_step = function()
 {
 	x = clamp(mouse_x, mouse_pos_buffer, room_width-mouse_pos_buffer);

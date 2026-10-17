@@ -17,6 +17,26 @@ lock_slide = function()
 	_next.lock();
 }
 
+unlock_prev_slide = function()
+{
+	var _prev = instance_find(o_PrevSlideLocked, 0);
+	if (_prev.locked = true)
+	{
+		audio_play_sound(sfx_Sad, 100, false);
+		_prev.unlock();
+	}
+}
+
+unlock_retry_slide = function()
+{
+	var _retry = instance_find(o_RetryLocked, 0);
+	if (_retry.locked)
+	{
+		audio_play_sound(sfx_Sad, 100, false);
+		_retry.unlock();
+	}
+}
+
 check_for_slide_completion = function()
 {
 	switch(room)
@@ -50,7 +70,43 @@ check_for_slide_completion = function()
 				unlock_slide();
 			}
 		break;
+		
+		case Room19:
+		case Room20:
+		case Room21:
+			var _mouse = instance_find(o_Mouse, 0);
+			if (_mouse != noone)
+			{
+				if (_mouse.collided && !_mouse.gotCheese)
+				{
+					unlock_retry_slide();
+					var _cheese = instance_find(o_Cheese, 0);
+					if (_cheese != noone)
+					{
+						if (o_Cursor.held_object == _cheese)
+						{
+							o_Cursor.held_object = noone;
+						}
+						instance_destroy(_cheese);
+					}
+				}
+				else if (_mouse.gotCheese && !_mouse.collided)
+				{
+					_mouse.sprite_index = s_MouseWin;
+					var _cheese = instance_find(o_Cheese, 0);
+					if (_cheese != noone)
+					{
+						if (o_Cursor.held_object == _cheese)
+						{
+							o_Cursor.held_object = noone;
+						}
+						instance_destroy(_cheese);
+					}
+					unlock_slide();
+				}
+			}
+		break;
 	}
 }
 
-//room_goto(Room9);
+//room_goto(Room19);

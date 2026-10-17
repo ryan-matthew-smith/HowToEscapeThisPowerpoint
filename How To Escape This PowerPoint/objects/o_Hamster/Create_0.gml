@@ -58,6 +58,10 @@ perform_step = function()
 		
 		perform_dance_sequence();
 	}
+	if (room == Room17T)
+	{
+		instance_destroy();
+	}
 }
 
 perform_dance_sequence = function()

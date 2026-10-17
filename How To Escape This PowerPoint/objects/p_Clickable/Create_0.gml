@@ -16,9 +16,16 @@ stretch = function()
 	scale_apply(scale_struct, 1.1, 1.1);
 }
 
+
+perform_step_extra = function()
+{
+	
+}
+
 perform_step = function()
 {
 	scale_step_elastic(scale_struct);
+	perform_step_extra();
 }
 
 perform_draw = function()
